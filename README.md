@@ -16,6 +16,18 @@ This project showcases the end-to-end analysis of a retail business using SQL an
 2. Power BI -	Interactive dashboards and data visualization
 3. Excel -	Data splitting and preprocessing
 
+DAX Queries:
+1.Average Order Value(AOV) = AVERAGE(Orders_Table[Sales])
+2. Average Spent per Customer = DIVIDE(SUM(Orders_Table[Sales]),DISTINCTCOUNT(Orders_Table[Customer ID]))
+3. Profit Margin % = DIVIDE([Total Profit],[Total Sales])*100
+4. Repeat Customer % = DIVIDE(COUNTROWS(FILTER(CustomersOrder,CustomersOrder[Order Count] >1)),
+COUNTROWS(CustomersOrder)
+)*100
+
+5. Total Profit = SUM(Orders_Table[Profit])*100
+6. Total Sales = SUM(Orders_Table[Sales])
+7. CustomersOrder = SUMMARIZE(Orders_Table, Orders_Table[Customer ID],"Order Count",COUNTROWS(VALUES(Orders_Table[Order ID])))
+
 ### Dashboard : 
 1. Overview Page
 <img width="1319" height="727" alt="Screenshot 2025-08-02 061803" src="https://github.com/user-attachments/assets/49555f86-9337-4287-b4cf-34df6a0a0292" />
